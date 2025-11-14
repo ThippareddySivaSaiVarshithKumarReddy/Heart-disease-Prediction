@@ -3,7 +3,6 @@
 A simple end-to-end heart disease prediction system built with Python.  
 The project includes data preprocessing, model training (Logistic Regression), model serialization (Pickle), and a Flask web application for making predictions. The deployed app loads the saved model and returns a prediction based on user input.
 
-# Achieved performance: ~82% accuracy on held-out test data.
 
 # Project Overview
 This repository demonstrates a basic machine learning pipeline for predicting heart disease risk. The pipeline covers:
