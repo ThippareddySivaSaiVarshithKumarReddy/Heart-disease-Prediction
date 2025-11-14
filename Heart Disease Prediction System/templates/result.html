@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prediction Result</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+            .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; text-align: center; }
+            h1 { color: #333; }
+            .result { font-size: 24px; font-weight: bold; margin-top: 20px; padding: 15px; border-radius: 4px; }
+            .good { background-color: #e6ffe6; color: #1e8449; border: 1px solid #1e8449; }
+            .bad { background-color: #ffe6e6; color: #c0392b; border: 1px solid #c0392b; }
+            a { display: block; margin-top: 20px; color: #4CAF50; text-decoration: none; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Prediction Result</h1>
+            
+            {% if "Good News" in prediction_text %}
+                <div class="result good">
+                    {{ prediction_text }}
+                </div>
+            {% else %}
+                <div class="result bad">
+                    {{ prediction_text }}
+                </div>
+            {% endif %}
+
+            <a href="{{ url_for('home') }}">Predict Again</a>
+        </div>  
+    </body>
+</html>

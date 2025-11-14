@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heart Disease Predictor</title>
+        <style>
+            body { 
+                font-family: Arial, sans-serif; margin: 40px; 
+                background-color: #f4f4f9; 
+            }
+            .container {
+                background-color: #fff; 
+                padding: 30px; border-radius: 8px; 
+                box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+                max-width: 600px; margin: auto; 
+            }
+            h1 { 
+                text-align: center; 
+                color: #333; 
+            }
+            .form-group { 
+                margin-bottom: 15px; 
+            }
+            label { 
+                display: block; 
+                margin-bottom: 5px; 
+                font-weight: bold; 
+                color: #555; 
+            }
+            input[type="number"] { 
+                width: 100%; padding: 10px; 
+                border: 1px solid #ccc; 
+                border-radius: 4px; 
+                box-sizing: border-box; 
+            }
+            button { background-color: #4CAF50;
+                color: white; 
+                padding: 12px 20px; 
+                border: none; border-radius: 4px; 
+                cursor: pointer; width: 100%; 
+                font-size: 16px; 
+                margin-top: 20px; 
+                }
+            button:hover { 
+                background-color: #45a049; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Heart Disease Prediction System</h1>
+            <p>Please enter the 13 required patient features:</p>
+
+            <form action="{{ url_for('predict') }}" method="POST">
+                {% for feature in feature_names %}
+                <div class="form-group">
+                    <label for="{{ loop.index }}">{{ feature }} (Value {{ loop.index }})</label>
+                    <input type="number" step="any" id="{{ loop.index }}" name="feature_{{ loop.index }}" required>
+                </div>
+                {% endfor %}
+
+                <button type="submit">Get Prediction</button>
+            </form>
+        </div>
+    </body>
+</html>
